@@ -1,0 +1,20 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CourierSafetyApp"
+             x:Class="CourierSafetyApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Removed toolkit:InvertedBoolConverter as it does not exist -->
+
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Secondary">#FFC107</Color>
+            <Color x:Key="Danger">#F44336</Color>
+            <Color x:Key="Success">#4CAF50</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

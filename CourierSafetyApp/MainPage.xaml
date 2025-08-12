@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourierSafetyApp.MainPage"
+             Title="Courier Safety App">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!-- Status Display -->
+            <Frame BackgroundColor="#2196F3" Padding="15" CornerRadius="10">
+                <VerticalStackLayout>
+                    <Label Text="Current Status" 
+                           FontSize="16" 
+                           TextColor="White"/>
+                    <Label Text="{Binding CurrentStatus}" 
+                           FontSize="24" 
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Location Display -->
+            <Frame BackgroundColor="#F5F5F5" Padding="15" CornerRadius="10">
+                <VerticalStackLayout>
+                    <Label Text="Current Location" 
+                           FontSize="16" 
+                           TextColor="#666"/>
+                    <Label Text="{Binding CurrentLocation}" 
+                           FontSize="18" 
+                           TextColor="#333"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Panic Button -->
+            <Button Text="PANIC"
+                    Command="{Binding PanicButtonCommand}"
+                    BackgroundColor="#F44336"
+                    TextColor="White"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HeightRequest="100"
+                    CornerRadius="50"
+                    IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBoolConverter}}"/>
+
+            <!-- Tracking Controls -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Button Grid.Column="0"
+                        Text="Start Tracking"
+                        Command="{Binding StartTrackingCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        IsVisible="{Binding IsTracking, Converter={StaticResource InverseBoolConverter}}"/>
+
+                <Button Grid.Column="1"
+                        Text="Stop Tracking"
+                        Command="{Binding StopTrackingCommand}"
+                        BackgroundColor="#FF9800"
+                        TextColor="White"
+                        IsVisible="{Binding IsTracking}"/>
+            </Grid>
+
+            <!-- Quick Actions -->
+            <Label Text="Quick Actions" 
+                   FontSize="20" 
+                   FontAttributes="Bold"
+                   Margin="0,20,0,0"/>
+
+            <Grid RowDefinitions="100,100" 
+                  ColumnDefinitions="*,*" 
+                  RowSpacing="10" 
+                  ColumnSpacing="10">
+
+                <Frame Grid.Row="0" Grid.Column="0" 
+                       BackgroundColor="#E3F2FD" 
+                       Padding="10">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Image Source="icon_map.png" 
+                               HeightRequest="40"/>
+                        <Label Text="View Map" 
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" 
+                       BackgroundColor="#FFF3E0" 
+                       Padding="10">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Image Source="icon_contacts.png" 
+                               HeightRequest="40"/>
+                        <Label Text="Contacts" 
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" 
+                       BackgroundColor="#F3E5F5" 
+                       Padding="10">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Image Source="icon_history.png" 
+                               HeightRequest="40"/>
+                        <Label Text="History" 
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" 
+                       BackgroundColor="#E8F5E9" 
+                       Padding="10">
+                    <VerticalStackLayout VerticalOptions="Center">
+                        <Image Source="icon_settings.png" 
+                               HeightRequest="40"/>
+                        <Label Text="Settings" 
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
